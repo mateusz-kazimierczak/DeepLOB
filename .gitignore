@@ -1,0 +1,19 @@
+
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Data files (large)
+data/extracted/
+data/data.zip
+
+# Model checkpoints
+jupyter_tensorflow/model_tensorflow2/
+jupyter_pytorch/best_val_model_pytorch
+
+# Jupyter
+.ipynb_checkpoints/

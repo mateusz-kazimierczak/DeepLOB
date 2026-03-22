@@ -1,0 +1,23 @@
+[project]
+name = "deeplob"
+version = "0.1.0"
+description = "Deep Convolutional Neural Networks for Limit Order Books"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "scikit-learn",
+    "tqdm",
+    "jupyter",
+]
+
+[project.optional-dependencies]
+tensorflow = [
+    "tensorflow",
+    "keras",
+]
+pytorch = [
+    "torch",
+    "torchinfo",
+]
