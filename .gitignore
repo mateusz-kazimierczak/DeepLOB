@@ -7,9 +7,8 @@ __pycache__/
 dist/
 build/
 
-# Data files (large)
+# Data files (extracted)
 data/extracted/
-data/data.zip
 
 # Model checkpoints
 jupyter_tensorflow/model_tensorflow2/
