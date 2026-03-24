@@ -16,3 +16,5 @@ jupyter_pytorch/best_val_model_pytorch
 
 # Jupyter
 .ipynb_checkpoints/
+
+data/full/BenchmarkDatasets/
