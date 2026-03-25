@@ -132,3 +132,13 @@ Interpretation:
 - Current read:
   - `0.75`-power weighting is closer to the right direction than `0.5`
   - the next useful search band is around `0.6` to `0.8`
+
+### Iteration 6
+
+- Run: `iter06_h2_a0001_current_future_cw065_e4`
+- Result: accuracy `0.6861`, macro F1 `0.3431`, weighted F1 `0.6056`
+- Read:
+  - this is cleaner on accuracy than `iter05`
+  - but it does not improve macro F1 enough to replace `iter05`
+- Next move:
+  - probe the stronger side of the band (`0.8`)
