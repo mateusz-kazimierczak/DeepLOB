@@ -1,0 +1,163 @@
+{
+  "run_name": "iter08_h2_a0001_current_future_cw075_e8",
+  "timestamp_utc": "2026-03-25T11:25:57.553096+00:00",
+  "formula": "current_future_mean",
+  "horizon_steps": 2,
+  "alpha": 0.0001,
+  "epochs_requested": 8,
+  "batch_size": 16,
+  "monitor_metric": "macro_f1",
+  "patience": 8,
+  "use_class_weights": true,
+  "class_weight_power": 0.75,
+  "train_shape": [
+    254649,
+    100,
+    40,
+    1
+  ],
+  "test_shape": [
+    139486,
+    100,
+    40,
+    1
+  ],
+  "train_label_distribution": {
+    "1": 152613,
+    "0": 50711,
+    "2": 51325
+  },
+  "test_label_distribution": {
+    "2": 21009,
+    "0": 20701,
+    "1": 97776
+  },
+  "train_label_accuracy_vs_official": 0.5936808139808752,
+  "train_label_macro_f1_vs_official": 0.5110199778419409,
+  "test_label_accuracy_vs_official": 0.6902317584267651,
+  "test_label_macro_f1_vs_official": 0.5359993555905176,
+  "best_epoch": 8,
+  "best_test_accuracy": 0.631497067806088,
+  "best_test_macro_f1": 0.3818924570767342,
+  "best_test_weighted_f1": 0.6021565695611858,
+  "final_test_accuracy": 0.631497067806088,
+  "final_test_macro_f1": 0.3818924570767342,
+  "final_test_weighted_f1": 0.6021565695611858,
+  "classification_report": {
+    "0": {
+      "precision": 0.21847519160951998,
+      "recall": 0.13081493647649872,
+      "f1-score": 0.16364515349286923,
+      "support": 20701.0
+    },
+    "1": {
+      "precision": 0.7336321017369282,
+      "recall": 0.8354504172803142,
+      "f1-score": 0.7812377463872763,
+      "support": 97776.0
+    },
+    "2": {
+      "precision": 0.23436011432200698,
+      "recall": 0.1756390118520634,
+      "f1-score": 0.20079447135005712,
+      "support": 21009.0
+    },
+    "accuracy": 0.631497067806088,
+    "macro avg": {
+      "precision": 0.39548913588948503,
+      "recall": 0.3806347885362921,
+      "f1-score": 0.3818924570767342,
+      "support": 139486.0
+    },
+    "weighted avg": {
+      "precision": 0.581979115916505,
+      "recall": 0.631497067806088,
+      "f1-score": 0.6021565695611858,
+      "support": 139486.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      2708,
+      14656,
+      3337
+    ],
+    [
+      7371,
+      81687,
+      8718
+    ],
+    [
+      2316,
+      15003,
+      3690
+    ]
+  ],
+  "epoch_rows": [
+    {
+      "epoch": 1,
+      "train_loss": 0.8814948201179504,
+      "train_accuracy": 0.5804420709609985,
+      "test_accuracy": 0.6841618513685961,
+      "test_macro_f1": 0.33524252368098945,
+      "test_weighted_f1": 0.6011597554697908
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.8773265480995178,
+      "train_accuracy": 0.572478175163269,
+      "test_accuracy": 0.6827495232496451,
+      "test_macro_f1": 0.34181471523165324,
+      "test_weighted_f1": 0.6036693167339895
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.8747395873069763,
+      "train_accuracy": 0.5668547749519348,
+      "test_accuracy": 0.6770858724173036,
+      "test_macro_f1": 0.34981274384827277,
+      "test_weighted_f1": 0.6053096416076259
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.8724279999732971,
+      "train_accuracy": 0.5638702511787415,
+      "test_accuracy": 0.6714724058328434,
+      "test_macro_f1": 0.3524877146459811,
+      "test_weighted_f1": 0.6045429722170584
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.8698180317878723,
+      "train_accuracy": 0.5590165257453918,
+      "test_accuracy": 0.6623030268270651,
+      "test_macro_f1": 0.3612128406230491,
+      "test_weighted_f1": 0.6049749417348899
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.8669044971466064,
+      "train_accuracy": 0.5540135502815247,
+      "test_accuracy": 0.653864904004703,
+      "test_macro_f1": 0.3720035936572204,
+      "test_weighted_f1": 0.6065210957970915
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.8639461398124695,
+      "train_accuracy": 0.5469725131988525,
+      "test_accuracy": 0.6422078201396556,
+      "test_macro_f1": 0.3780357923535691,
+      "test_weighted_f1": 0.6047045006979401
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.8608410358428955,
+      "train_accuracy": 0.542291522026062,
+      "test_accuracy": 0.631497067806088,
+      "test_macro_f1": 0.3818924570767342,
+      "test_weighted_f1": 0.6021565695611858
+    }
+  ],
+  "checkpoint_path": "C:\\Users\\mateu\\DeepLOB\\jupyter_tensorflow\\iteration_results\\iter08_h2_a0001_current_future_cw075_e8.weights.h5"
+}

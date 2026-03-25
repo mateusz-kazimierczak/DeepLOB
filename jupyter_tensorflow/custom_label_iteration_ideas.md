@@ -154,3 +154,24 @@ Interpretation:
 - Current read:
   - `0.75` still looks like the best point in this immediate band if the main goal is to escape the static-class collapse
   - the next useful knob is probably training duration or a narrower search around `0.72` to `0.78`
+
+### Iteration 8
+
+- Run: `iter08_h2_a0001_current_future_cw075_e8`
+- Result: accuracy `0.6315`, macro F1 `0.3819`, weighted F1 `0.6022`
+- Read:
+  - macro F1 kept rising past 4 epochs
+  - this is the best macro F1 inside the current-future label family so far
+  - accuracy drifted down as training continued
+
+### Iteration 9
+
+- Run: `iter09_h2_a1e6_past_future_e8`
+- Result: accuracy `0.5067`, macro F1 `0.3789`, weighted F1 `0.4710`
+- Important finding:
+  - this label formula matches the official FI-2010 `k=20` labels much better than the current-future family
+  - test label accuracy vs official `0.7188`
+  - test label macro F1 vs official `0.6113`
+- Current read:
+  - the main remaining bottleneck may now be training on the better labels, not the label formula itself
+  - next move: add moderate class weighting to this past-future label setup
