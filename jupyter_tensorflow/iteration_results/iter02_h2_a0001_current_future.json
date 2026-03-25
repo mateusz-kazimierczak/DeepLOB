@@ -1,0 +1,161 @@
+{
+  "run_name": "iter02_h2_a0001_current_future",
+  "timestamp_utc": "2026-03-25T02:05:25.704469+00:00",
+  "formula": "current_future_mean",
+  "horizon_steps": 2,
+  "alpha": 0.0001,
+  "epochs_requested": 8,
+  "batch_size": 16,
+  "monitor_metric": "macro_f1",
+  "patience": 4,
+  "train_shape": [
+    254649,
+    100,
+    40,
+    1
+  ],
+  "test_shape": [
+    139486,
+    100,
+    40,
+    1
+  ],
+  "train_label_distribution": {
+    "1": 152613,
+    "0": 50711,
+    "2": 51325
+  },
+  "test_label_distribution": {
+    "2": 21009,
+    "0": 20701,
+    "1": 97776
+  },
+  "train_label_accuracy_vs_official": 0.5936808139808752,
+  "train_label_macro_f1_vs_official": 0.5110199778419409,
+  "test_label_accuracy_vs_official": 0.6902317584267651,
+  "test_label_macro_f1_vs_official": 0.5359993555905176,
+  "best_epoch": 8,
+  "best_test_accuracy": 0.7006509613868058,
+  "best_test_macro_f1": 0.2839468659460207,
+  "best_test_weighted_f1": 0.5820718778324196,
+  "final_test_accuracy": 0.7006509613868058,
+  "final_test_macro_f1": 0.2839468659460207,
+  "final_test_weighted_f1": 0.5820718778324196,
+  "classification_report": {
+    "0": {
+      "precision": 0.32601880877742945,
+      "recall": 0.0050239118883145745,
+      "f1-score": 0.009895337773549001,
+      "support": 20701.0
+    },
+    "1": {
+      "precision": 0.7031702159903588,
+      "recall": 0.9965533464244805,
+      "f1-score": 0.8245418812170241,
+      "support": 97776.0
+    },
+    "2": {
+      "precision": 0.31543624161073824,
+      "recall": 0.008948545861297539,
+      "f1-score": 0.017403378847489007,
+      "support": 21009.0
+    },
+    "accuracy": 0.7006509613868058,
+    "macro avg": {
+      "precision": 0.4482084221261755,
+      "recall": 0.33684193472469753,
+      "f1-score": 0.2839468659460207,
+      "support": 139486.0
+    },
+    "weighted avg": {
+      "precision": 0.5887980614482806,
+      "recall": 0.7006509613868058,
+      "f1-score": 0.5820718778324196,
+      "support": 139486.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      104,
+      20407,
+      190
+    ],
+    [
+      119,
+      97439,
+      218
+    ],
+    [
+      96,
+      20725,
+      188
+    ]
+  ],
+  "epoch_rows": [
+    {
+      "epoch": 1,
+      "train_loss": 0.9416010975837708,
+      "train_accuracy": 0.5992954969406128,
+      "test_accuracy": 0.7009735744089013,
+      "test_macro_f1": 0.2747342600163532,
+      "test_weighted_f1": 0.5777443687687428
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.9375155568122864,
+      "train_accuracy": 0.5993112325668335,
+      "test_accuracy": 0.7009735744089013,
+      "test_macro_f1": 0.2747342600163532,
+      "test_weighted_f1": 0.5777443687687428
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.9350185394287109,
+      "train_accuracy": 0.5993701219558716,
+      "test_accuracy": 0.7009735744089013,
+      "test_macro_f1": 0.2747342600163532,
+      "test_weighted_f1": 0.5777443687687428
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.9325801730155945,
+      "train_accuracy": 0.5994682908058167,
+      "test_accuracy": 0.7008445292000631,
+      "test_macro_f1": 0.27476811561767156,
+      "test_weighted_f1": 0.5777108493293198
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.9300103783607483,
+      "train_accuracy": 0.5997785329818726,
+      "test_accuracy": 0.7007728374173752,
+      "test_macro_f1": 0.2755589399096564,
+      "test_weighted_f1": 0.5780678736800869
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.9272156953811646,
+      "train_accuracy": 0.6003007888793945,
+      "test_accuracy": 0.700815852486988,
+      "test_macro_f1": 0.27686924437035054,
+      "test_weighted_f1": 0.5787144466469424
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.9243593215942383,
+      "train_accuracy": 0.600544273853302,
+      "test_accuracy": 0.7009305593392885,
+      "test_macro_f1": 0.2800577629974683,
+      "test_weighted_f1": 0.5802711657376681
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.9214988350868225,
+      "train_accuracy": 0.6009212732315063,
+      "test_accuracy": 0.7006509613868058,
+      "test_macro_f1": 0.2839468659460207,
+      "test_weighted_f1": 0.5820718778324196
+    }
+  ],
+  "checkpoint_path": "C:\\Users\\mateu\\DeepLOB\\jupyter_tensorflow\\iteration_results\\iter02_h2_a0001_current_future.weights.h5"
+}

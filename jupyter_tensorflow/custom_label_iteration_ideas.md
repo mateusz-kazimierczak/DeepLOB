@@ -71,3 +71,19 @@ Interpretation:
   - lower alpha to `0.0001`
   - keep `horizon_steps=2`
   - consider training-time class weighting if the lower-alpha run still collapses
+
+### Iteration 2
+
+- Run: `iter02_h2_a0001_current_future`
+- Result: accuracy `0.7007`, macro F1 `0.2839`, weighted F1 `0.5821`
+- Label-side improvement:
+  - test label accuracy vs official `0.6902`
+  - test label macro F1 vs official `0.5360`
+- Main failure mode:
+  - model still predicted almost everything as class `1`
+  - class `0` recall was `0.0050`
+  - class `2` recall was `0.0089`
+- Next move:
+  - keep `horizon_steps=2`
+  - keep `alpha=0.0001`
+  - add class weighting to the training loop
