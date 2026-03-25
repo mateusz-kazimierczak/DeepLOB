@@ -196,6 +196,7 @@ def main():
     parser.add_argument("--monitor-metric", choices=["macro_f1", "accuracy"], default="macro_f1")
     parser.add_argument("--patience", type=int, default=4)
     parser.add_argument("--use-class-weights", action="store_true")
+    parser.add_argument("--class-weight-power", type=float, default=1.0)
     args = parser.parse_args()
 
     os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "2")
@@ -243,6 +244,9 @@ def main():
     if args.use_class_weights:
         classes = np.array([0, 1, 2], dtype=np.int64)
         weights = compute_class_weight("balanced", classes=classes, y=train_y_int)
+        if args.class_weight_power != 1.0:
+            weights = np.power(weights, args.class_weight_power)
+            weights = weights / weights.mean()
         class_weights = {int(cls): float(weight) for cls, weight in zip(classes, weights)}
         print("class_weights", class_weights)
 
@@ -271,6 +275,7 @@ def main():
         "monitor_metric": args.monitor_metric,
         "patience": args.patience,
         "use_class_weights": bool(args.use_class_weights),
+        "class_weight_power": float(args.class_weight_power),
         "train_shape": list(train_x.shape),
         "test_shape": list(test_x.shape),
         "train_label_distribution": {str(k): int(v) for k, v in Counter(train_y_int.tolist()).items()},
