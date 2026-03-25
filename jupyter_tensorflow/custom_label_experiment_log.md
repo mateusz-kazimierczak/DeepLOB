@@ -33,6 +33,7 @@ This log tracks notebook and script runs related to replicating the paper-style 
 | S5 | `iter02_h2_a0001_current_future` using current-to-future mean, horizon `2`, `alpha=0.0001`, checkpoint by macro F1 | 8 | 0.7007 | 0.2839 | 0.5821 | Label agreement improved again, but the network still predicted almost everything as stationary. |
 | S6 | `iter03a_h2_a0001_current_future_cw_e4` using current-to-future mean, horizon `2`, `alpha=0.0001`, balanced class weights, checkpoint by macro F1 | 4 | 0.5130 | 0.3815 | 0.5436 | First run that meaningfully lifted minority-class recall, but full class weighting reduced accuracy too sharply. |
 | S7 | `iter04_h2_a0001_current_future_cw05_e4` using current-to-future mean, horizon `2`, `alpha=0.0001`, square-root class weights, checkpoint by macro F1 | 4 | 0.6973 | 0.3342 | 0.6051 | Best compromise so far between not collapsing to static and not tanking overall accuracy. |
+| S8 | `iter05_h2_a0001_current_future_cw075_e4` using current-to-future mean, horizon `2`, `alpha=0.0001`, `0.75`-power class weights, checkpoint by macro F1 | 4 | 0.6393 | 0.3697 | 0.5991 | Better minority recall than `iter04`, with a milder accuracy hit than full balanced weights. |
 
 ## Label Agreement Sweep Against Official FI-2010 `k=20`
 
@@ -92,3 +93,6 @@ Custom formula distributions:
 - The next training change to test is class weighting on the `horizon_steps=2`, `alpha=0.0001` labels, because both `iter01` and `iter02` collapsed toward class `1` in the confusion matrix.
 - Full balanced class weights helped macro F1 a lot, so the next training change is to soften the weighting rather than abandon it.
 - Square-root weighting improved the tradeoff, so the next step is to probe intermediate weight strengths and watch the confusion matrix for a better balance.
+- Current best tradeoff candidates:
+  - `iter04` if overall accuracy matters most
+  - `iter05` if minority-class recall / macro F1 matter more

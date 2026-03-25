@@ -1,0 +1,131 @@
+{
+  "run_name": "iter05_h2_a0001_current_future_cw075_e4",
+  "timestamp_utc": "2026-03-25T10:41:56.425587+00:00",
+  "formula": "current_future_mean",
+  "horizon_steps": 2,
+  "alpha": 0.0001,
+  "epochs_requested": 4,
+  "batch_size": 16,
+  "monitor_metric": "macro_f1",
+  "patience": 4,
+  "use_class_weights": true,
+  "class_weight_power": 0.75,
+  "train_shape": [
+    254649,
+    100,
+    40,
+    1
+  ],
+  "test_shape": [
+    139486,
+    100,
+    40,
+    1
+  ],
+  "train_label_distribution": {
+    "1": 152613,
+    "0": 50711,
+    "2": 51325
+  },
+  "test_label_distribution": {
+    "2": 21009,
+    "0": 20701,
+    "1": 97776
+  },
+  "train_label_accuracy_vs_official": 0.5936808139808752,
+  "train_label_macro_f1_vs_official": 0.5110199778419409,
+  "test_label_accuracy_vs_official": 0.6902317584267651,
+  "test_label_macro_f1_vs_official": 0.5359993555905176,
+  "best_epoch": 4,
+  "best_test_accuracy": 0.6393258104756033,
+  "best_test_macro_f1": 0.3697065898627602,
+  "best_test_weighted_f1": 0.5990843971849261,
+  "final_test_accuracy": 0.6393258104756033,
+  "final_test_macro_f1": 0.3697065898627602,
+  "final_test_weighted_f1": 0.5990843971849261,
+  "classification_report": {
+    "0": {
+      "precision": 0.21291888359936526,
+      "recall": 0.110187913627361,
+      "f1-score": 0.14522187559686764,
+      "support": 20701.0
+    },
+    "1": {
+      "precision": 0.7246841459409945,
+      "recall": 0.8576644575355915,
+      "f1-score": 0.7855864801821129,
+      "support": 97776.0
+    },
+    "2": {
+      "precision": 0.23263117579471468,
+      "recall": 0.14455709457851398,
+      "f1-score": 0.17831141380930013,
+      "support": 21009.0
+    },
+    "accuracy": 0.6393258104756033,
+    "macro avg": {
+      "precision": 0.39007806844502485,
+      "recall": 0.3708031552471555,
+      "f1-score": 0.3697065898627602,
+      "support": 139486.0
+    },
+    "weighted avg": {
+      "precision": 0.5746218203632502,
+      "recall": 0.6393258104756033,
+      "f1-score": 0.5990843971849261,
+      "support": 139486.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      2281,
+      15793,
+      2627
+    ],
+    [
+      6526,
+      83859,
+      7391
+    ],
+    [
+      1906,
+      16066,
+      3037
+    ]
+  ],
+  "epoch_rows": [
+    {
+      "epoch": 1,
+      "train_loss": 0.8823943138122559,
+      "train_accuracy": 0.5849227905273438,
+      "test_accuracy": 0.6820182670662289,
+      "test_macro_f1": 0.33210267617466677,
+      "test_weighted_f1": 0.59900972347066
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.8778055310249329,
+      "train_accuracy": 0.5767939686775208,
+      "test_accuracy": 0.664088152215993,
+      "test_macro_f1": 0.3456153351067463,
+      "test_weighted_f1": 0.5983767103281525
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.8742895126342773,
+      "train_accuracy": 0.5668076276779175,
+      "test_accuracy": 0.6493626600519049,
+      "test_macro_f1": 0.36256682985671596,
+      "test_weighted_f1": 0.6001853708980218
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.8710357546806335,
+      "train_accuracy": 0.5583803653717041,
+      "test_accuracy": 0.6393258104756033,
+      "test_macro_f1": 0.3697065898627602,
+      "test_weighted_f1": 0.5990843971849261
+    }
+  ],
+  "checkpoint_path": "C:\\Users\\mateu\\DeepLOB\\jupyter_tensorflow\\iteration_results\\iter05_h2_a0001_current_future_cw075_e4.weights.h5"
+}

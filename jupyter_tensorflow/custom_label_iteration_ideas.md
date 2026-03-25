@@ -118,3 +118,17 @@ Interpretation:
 - Next move:
   - keep labels fixed at `horizon_steps=2`, `alpha=0.0001`
   - tune class-weight strength between `0.5` and `1.0`
+
+### Iteration 5
+
+- Run: `iter05_h2_a0001_current_future_cw075_e4`
+- Result: accuracy `0.6393`, macro F1 `0.3697`, weighted F1 `0.5991`
+- What improved versus `iter04`:
+  - class `0` recall increased from `0.0291` to `0.1102`
+  - class `2` recall increased from `0.0766` to `0.1446`
+  - macro F1 improved from `0.3342` to `0.3697`
+- What got worse:
+  - accuracy dropped from `0.6973` to `0.6393`
+- Current read:
+  - `0.75`-power weighting is closer to the right direction than `0.5`
+  - the next useful search band is around `0.6` to `0.8`
