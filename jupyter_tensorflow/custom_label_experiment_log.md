@@ -35,6 +35,7 @@ This log tracks notebook and script runs related to replicating the paper-style 
 | S7 | `iter04_h2_a0001_current_future_cw05_e4` using current-to-future mean, horizon `2`, `alpha=0.0001`, square-root class weights, checkpoint by macro F1 | 4 | 0.6973 | 0.3342 | 0.6051 | Best compromise so far between not collapsing to static and not tanking overall accuracy. |
 | S8 | `iter05_h2_a0001_current_future_cw075_e4` using current-to-future mean, horizon `2`, `alpha=0.0001`, `0.75`-power class weights, checkpoint by macro F1 | 4 | 0.6393 | 0.3697 | 0.5991 | Better minority recall than `iter04`, with a milder accuracy hit than full balanced weights. |
 | S9 | `iter06_h2_a0001_current_future_cw065_e4` using current-to-future mean, horizon `2`, `alpha=0.0001`, `0.65`-power class weights, checkpoint by macro F1 | 4 | 0.6861 | 0.3431 | 0.6056 | Better accuracy than `iter05`, but not enough macro-F1 gain over `iter04` to become the new best tradeoff. |
+| S10 | `iter07_h2_a0001_current_future_cw08_e4` using current-to-future mean, horizon `2`, `alpha=0.0001`, `0.8`-power class weights, checkpoint by macro F1 | 4 | 0.6638 | 0.3569 | 0.6039 | Slightly better accuracy than `iter05`, but worse macro F1, so `0.75` remains the strongest macro-F1 compromise. |
 
 ## Label Agreement Sweep Against Official FI-2010 `k=20`
 
@@ -98,3 +99,4 @@ Custom formula distributions:
   - `iter04` if overall accuracy matters most
   - `iter05` if minority-class recall / macro F1 matter more
   - `iter06` sits between them, but does not beat either cleanly
+  - `iter07` confirms the `0.75` region is stronger than pushing all the way to `0.8`

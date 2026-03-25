@@ -142,3 +142,15 @@ Interpretation:
   - but it does not improve macro F1 enough to replace `iter05`
 - Next move:
   - probe the stronger side of the band (`0.8`)
+
+### Iteration 7
+
+- Run: `iter07_h2_a0001_current_future_cw08_e4`
+- Result: accuracy `0.6638`, macro F1 `0.3569`, weighted F1 `0.6039`
+- Read:
+  - stronger than `0.65` on macro F1
+  - weaker than `0.75` on macro F1
+  - slightly cleaner on accuracy than `0.75`
+- Current read:
+  - `0.75` still looks like the best point in this immediate band if the main goal is to escape the static-class collapse
+  - the next useful knob is probably training duration or a narrower search around `0.72` to `0.78`
