@@ -87,3 +87,19 @@ Interpretation:
   - keep `horizon_steps=2`
   - keep `alpha=0.0001`
   - add class weighting to the training loop
+
+### Iteration 3a
+
+- Run: `iter03a_h2_a0001_current_future_cw_e4`
+- Result: accuracy `0.5130`, macro F1 `0.3815`, weighted F1 `0.5436`
+- What improved:
+  - class `0` recall increased to `0.2646`
+  - class `2` recall increased to `0.3150`
+  - macro F1 improved by about `+0.0976` versus `iter02`
+- New problem:
+  - full balanced class weights overcorrected and pulled overall accuracy down too far
+  - class `1` recall fell to `0.6081`
+- Next move:
+  - keep the same labels
+  - soften class weighting instead of removing it
+  - target a middle ground between `iter02` and `iter03a`

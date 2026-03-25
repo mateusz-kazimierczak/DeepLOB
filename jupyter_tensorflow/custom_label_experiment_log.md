@@ -31,6 +31,7 @@ This log tracks notebook and script runs related to replicating the paper-style 
 | S3 | Full-train custom labels, `alpha=0.0010`, macro-F1-targeted run | timed out | n/a | n/a | n/a | Needs a cleaner rerun if we continue searching fairer custom-label settings. |
 | S4 | `iter01_h2_a0005_current_future` using current-to-future mean, horizon `2`, `alpha=0.0005`, checkpoint by macro F1 | 7 | 0.8487 | 0.3114 | 0.7806 | Better official-label alignment, but training still collapsed almost entirely to class `1`. |
 | S5 | `iter02_h2_a0001_current_future` using current-to-future mean, horizon `2`, `alpha=0.0001`, checkpoint by macro F1 | 8 | 0.7007 | 0.2839 | 0.5821 | Label agreement improved again, but the network still predicted almost everything as stationary. |
+| S6 | `iter03a_h2_a0001_current_future_cw_e4` using current-to-future mean, horizon `2`, `alpha=0.0001`, balanced class weights, checkpoint by macro F1 | 4 | 0.5130 | 0.3815 | 0.5436 | First run that meaningfully lifted minority-class recall, but full class weighting reduced accuracy too sharply. |
 
 ## Label Agreement Sweep Against Official FI-2010 `k=20`
 
@@ -88,3 +89,4 @@ Custom formula distributions:
 - The main gap is label reconstruction: the current custom formula does not reproduce the benchmark `k=20` targets closely enough.
 - For the next fair experiment, the best candidate is now `current_future_mean` with `horizon_steps=2` and `alpha=0.0001`, evaluated by macro F1 rather than raw accuracy.
 - The next training change to test is class weighting on the `horizon_steps=2`, `alpha=0.0001` labels, because both `iter01` and `iter02` collapsed toward class `1` in the confusion matrix.
+- Full balanced class weights helped macro F1 a lot, so the next training change is to soften the weighting rather than abandon it.

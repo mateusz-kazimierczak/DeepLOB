@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 import tensorflow as tf
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
+from sklearn.utils.class_weight import compute_class_weight
 from tensorflow.keras.layers import Conv2D, Dense, Flatten, Input, LeakyReLU, MaxPooling2D
 from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import Adam
@@ -194,6 +195,7 @@ def main():
     parser.add_argument("--learning-rate", type=float, default=1e-4)
     parser.add_argument("--monitor-metric", choices=["macro_f1", "accuracy"], default="macro_f1")
     parser.add_argument("--patience", type=int, default=4)
+    parser.add_argument("--use-class-weights", action="store_true")
     args = parser.parse_args()
 
     os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "2")
@@ -237,7 +239,22 @@ def main():
         patience=args.patience,
     )
 
-    model.fit(train_x, train_y, epochs=args.epochs, batch_size=args.batch_size, verbose=0, callbacks=[tracker])
+    class_weights = None
+    if args.use_class_weights:
+        classes = np.array([0, 1, 2], dtype=np.int64)
+        weights = compute_class_weight("balanced", classes=classes, y=train_y_int)
+        class_weights = {int(cls): float(weight) for cls, weight in zip(classes, weights)}
+        print("class_weights", class_weights)
+
+    model.fit(
+        train_x,
+        train_y,
+        epochs=args.epochs,
+        batch_size=args.batch_size,
+        verbose=0,
+        callbacks=[tracker],
+        class_weight=class_weights,
+    )
     model.load_weights(checkpoint_path)
     pred = model.predict(test_x, batch_size=args.batch_size, verbose=0)
     pred_int = np.argmax(pred, axis=1)
@@ -253,6 +270,7 @@ def main():
         "batch_size": args.batch_size,
         "monitor_metric": args.monitor_metric,
         "patience": args.patience,
+        "use_class_weights": bool(args.use_class_weights),
         "train_shape": list(train_x.shape),
         "test_shape": list(test_x.shape),
         "train_label_distribution": {str(k): int(v) for k, v in Counter(train_y_int.tolist()).items()},
