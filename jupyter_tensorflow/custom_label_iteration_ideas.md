@@ -175,3 +175,15 @@ Interpretation:
 - Current read:
   - the main remaining bottleneck may now be training on the better labels, not the label formula itself
   - next move: add moderate class weighting to this past-future label setup
+
+### Iteration 10a
+
+- Run: `iter10a_h2_a1e6_past_future_cw05_e4`
+- Result: accuracy `0.4875`, macro F1 `0.4011`, weighted F1 `0.4777`
+- What improved:
+  - best custom-label macro F1 so far
+  - class `0` recall reached `0.1875`
+  - class `2` recall reached `0.3663`
+- Current read:
+  - this is the first setting that clearly beats the earlier current-future runs on macro F1
+  - macro F1 was still rising at epoch 4, so the next step is to extend the same setup

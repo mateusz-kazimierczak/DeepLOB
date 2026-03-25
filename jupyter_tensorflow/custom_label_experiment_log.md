@@ -38,6 +38,7 @@ This log tracks notebook and script runs related to replicating the paper-style 
 | S10 | `iter07_h2_a0001_current_future_cw08_e4` using current-to-future mean, horizon `2`, `alpha=0.0001`, `0.8`-power class weights, checkpoint by macro F1 | 4 | 0.6638 | 0.3569 | 0.6039 | Slightly better accuracy than `iter05`, but worse macro F1, so `0.75` remains the strongest macro-F1 compromise. |
 | S11 | `iter08_h2_a0001_current_future_cw075_e8` using current-to-future mean, horizon `2`, `alpha=0.0001`, `0.75`-power class weights, 8 epochs | 8 | 0.6315 | 0.3819 | 0.6022 | Extending the strongest current-future setup improved macro F1 further, but accuracy kept drifting down. |
 | S12 | `iter09_h2_a1e6_past_future_e8` using past-vs-future mean, horizon `2`, `alpha=1e-6`, no class weights, 8 epochs | 8 | 0.5067 | 0.3789 | 0.4710 | Best label match so far to official FI-2010 `k=20` labels: test label accuracy `0.7188`, test label macro F1 `0.6113`. |
+| S13 | `iter10a_h2_a1e6_past_future_cw05_e4` using past-vs-future mean, horizon `2`, `alpha=1e-6`, `0.5`-power class weights, 4 epochs | 4 | 0.4875 | 0.4011 | 0.4777 | Best custom-label macro F1 so far in the whole iteration cycle; minority-class recalls became materially healthier. |
 
 ## Label Agreement Sweep Against Official FI-2010 `k=20`
 
@@ -104,3 +105,4 @@ Custom formula distributions:
   - `iter06` sits between them, but does not beat either cleanly
   - `iter07` confirms the `0.75` region is stronger than pushing all the way to `0.8`
   - `iter09` is now the most important label-quality checkpoint, because it finally reaches `0.6113` label macro F1 against the official targets
+  - `iter10a` is now the strongest overall macro-F1 training result and the most promising base for longer training
